@@ -4,10 +4,25 @@ If you would like to set up this workshop on your own, follow the below steps.
 
 ## Prerequisites
 
-* Twitter Account
-* Azure Account
-  * Databricks Account
-  * EventHub Resource
+You will need the following accounts and resources:
+
+* [Twitter Account](https://help.twitter.com/en/create-twitter-account)
+* [Azure Account](https://azure.microsoft.com/en-us/free/)
+  * [Azure Databricks Account](https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+  * [Azure EventHub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
+
+## Environment Setup
+
+After signing up for the prerequisite accounts and creating an `EventHub` to
+store incoming twitter posts, login to your `databricks account`. You will need to
+[create two clusters](http://),
+one for produce and one for consume. Then, attach the [corresponding libraries](http://)
+to each cluster. Import `ConsumeEvents.html` as a notebook and attach it to your
+`consume cluster`. **Make sure to set a consumer group in `ConsumeEvents.html`'s notebook.**
+Import `ProduceEvents.html` as a notebook and attach it to
+your `produce cluster`. Then, set your clusters' [environment variables](http://) by
+substituting your `Twitter` and `EventHub` credentials
+into `Environment.html` and execute the `Environment` script with `shift + enter`.
 
 ## Set up Clusters
 
@@ -29,8 +44,11 @@ sudo echo EVENTHUB_NAMESPACE_NAME=... >> /etc/environment
 sudo echo EVENTHUB_NAME=... >> /etc/environment
 sudo echo EVENTHUB_SAS_KEY_NAME=... >> /etc/environment
 sudo echo EVENTHUB_SAS_KEY=... >> /etc/environment
-sudo echo EVENTHUB_CONSUMER_GROUP=... >> /etc/environment
 ```
+
+## Execute Code
+
+`shift + enter`
 
 ## About these Files
 
@@ -55,3 +73,12 @@ streaming.
 
 I needed two clusters to avoid `azure-eventhubs-databricks_2.11-3.4.0` and
 `azure-eventhubs-spark_2.11-2.3.0` library collisions.
+
+### I cannot execute my code
+
+* Make sure that your notebook is attached to a cluster (produce or consume).
+* Try restarting the cluster and then re-executing all the code in the notebook
+
+### Other
+
+* Email `stephanie.marker93@gmail.com` and I'll get back to you!

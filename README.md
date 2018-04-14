@@ -1,13 +1,8 @@
 # Spark Streaming Twitter
 
-You will have 5 challenges related to `spark streaming`. Each challenge contains
-a description of what to do, requirements, and hints. If you're stuck, refer to
-the `docs` in the hint section as they contain code snippets very close if not
-identical to what you will need to write to solve the challenges.
-
-The challenges involve working with a `live twitter stream` connected to
-`EventHub`. `EventHub` will temporarily store ingested Twitter posts for you to
-consume with `spark streaming`.
+Workshop content for [Codess 2018](https://boscodess18.splashthat.com/).
+Refer to the [workshop setup documentation](http://)
+if you would like to run the examples on your own `azure Databricks` account.
 
 ## Resources
 
