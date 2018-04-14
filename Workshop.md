@@ -15,12 +15,12 @@ You will need the following accounts and resources:
 
 After signing up for the prerequisite accounts and creating an `EventHub` to
 store incoming twitter posts, login to your `databricks account`. You will need to
-[create two clusters](http://),
-one for produce and one for consume. Then, attach the [corresponding libraries](http://)
+[create two clusters](https://github.com/Smarker/codess2018/blob/master/Workshop.md#set-up-clusters),
+one for produce and one for consume. Then, attach the [corresponding libraries](https://github.com/Smarker/codess2018/blob/master/Workshop.md#set-up-clusters)
 to each cluster. Import `ConsumeEvents.html` as a notebook and attach it to your
 `consume cluster`. **Make sure to set a consumer group in `ConsumeEvents.html`'s notebook.**
 Import `ProduceEvents.html` as a notebook and attach it to
-your `produce cluster`. Then, set your clusters' [environment variables](http://) by
+your `produce cluster`. Then, set your clusters' [environment variables](https://github.com/Smarker/codess2018/blob/master/Workshop.md#set-up-environment-variables) by
 substituting your `Twitter` and `EventHub` credentials
 into `Environment.html` and execute the `Environment` script with `shift + enter`.
 
@@ -54,7 +54,7 @@ sudo echo EVENTHUB_SAS_KEY=... >> /etc/environment
 
 | File        | Description | Library Dependencies |
 | ----------- | ----------- | ---------------------|
-| Environment | Contains `environment variables` used to connect to `EventHub` and `Twitter` | none |
+| Environment | Contains `environment variables` used to connect to `EventHub` and `Twitter` | `none` |
 | Produce Events | Produces `twitter events` and streams them to `EventHub` | `azure-eventhubs-databricks_2.11-3.4.0`, `spark-streaming-twitter_2.11-2.2.0` |
 | ConsumeEvents | Consume `twitter events` from `EventHub` with structured spark streaming and perform operations on `twitter posts`. | `azure-eventhubs-spark_2.11-2.3.0`, `spark-streaming-twitter_2.11-2.2.0` |
 
@@ -62,8 +62,9 @@ sudo echo EVENTHUB_SAS_KEY=... >> /etc/environment
 
 ### Why are there two eventhubs libraries (spark, databricks)
 
-Using `spark-streaming-twitter_2.11-2.2.0` to produce twitter events results in
-a `DStream[twitter4j.Status]`. To work with `DStreams`, I needed
+I am using `spark-streaming-twitter_2.11-2.2.0` to produce twitter events. This
+library produces twitter events of type `DStream[twitter4j.Status]`.
+To work with `DStreams`, I needed
 `azure-eventhubs-databricks_2.11-3.4.0`. Since I wanted to use
 `structured spark streaming` to consume twitter statuses, I needed to use
 `azure-eventhubs-spark_2.11-2.3.0`, since this library is for structured

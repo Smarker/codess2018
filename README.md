@@ -1,8 +1,8 @@
 # Spark Streaming Twitter
 
 Workshop content for [Codess 2018](https://boscodess18.splashthat.com/).
-Refer to the [workshop setup documentation](http://)
-if you would like to run the examples on your own `azure Databricks` account.
+Refer to the [workshop setup documentation](https://github.com/Smarker/codess2018/blob/master/Workshop.md)
+if you would like to run the examples on your own [Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal) account.
 
 ## Resources
 
